@@ -1,1 +1,14 @@
-<p>blog-detail works!</p>
+<mat-card *ngIf="blog">
+	<mat-card-header>
+		<mat-card-title>
+			{{blog.title}}
+		</mat-card-title>
+		<mat-card-subtitle>
+			<span>{{blog.author}} | </span>
+			<span>{{blog.date | date}}</span>
+		</mat-card-subtitle>
+	</mat-card-header>
+	<mat-card-content>
+		{{blog.content}}
+	</mat-card-content>
+</mat-card>

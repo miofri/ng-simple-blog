@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { BlogService } from '../blog.service';
-import { BlogRaw } from '../blog.model';
+import { Blog, BlogRaw } from '../blog.model';
 
 @Component({
 	selector: 'app-blog-list',
@@ -9,7 +9,10 @@ import { BlogRaw } from '../blog.model';
 })
 export class BlogListComponent {
 	constructor(private blogService: BlogService) {}
-	blogs: BlogRaw[] = [];
+
+	blogs: Blog[] = [];
+	selectedBlog?: Blog;
+
 	ngOnInit(): void {
 		this.getBlogs();
 	}
@@ -22,11 +25,13 @@ export class BlogListComponent {
 			}));
 		});
 	}
-	// ngOnInit(): void {
-	// 	this.getHeroes();
-	// }
 
-	// getHeroes(): void {
-	// 	this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
-	// }
+	onBlogClick(blog: Blog) {
+		if (this.selectedBlog === blog) {
+			this.selectedBlog = undefined;
+		} else {
+			this.selectedBlog = blog;
+		}
+		console.log(this.selectedBlog);
+	}
 }

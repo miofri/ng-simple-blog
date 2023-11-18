@@ -70,6 +70,7 @@ export class InMemoryDataService implements InMemoryDbService {
 				author: 'Daniel Brown',
 				content:
 					'Capturing moments through the lens of a camera. Integer nec neque suscipit, lacinia justo at, pharetra sem. Nullam euismod vulputate elit vel tristique. Sed scelerisque met',
+				date: '2022-11-09T08:38:00Z',
 			},
 		];
 		return { blogs };

@@ -1,6 +1,18 @@
-<p>blog-list works!</p>
+<!-- <p>blog-list works!</p>
 <ul>
 	<li *ngFor="let blog of blogs">
-		<p>{{blog.title}}</p>
+		<span (click)="onBlogClick(blog)">{{blog.title}}</span>
 	</li>
-</ul>
+</ul> -->
+
+<mat-list>
+	@for (blog of blogs; track blog){
+	<mat-list-item>
+		<mat-icon matListItemIcon>description</mat-icon>
+		<div matListItemTitle (click)="onBlogClick(blog)">
+			{{blog.title}}
+		</div>
+	</mat-list-item>}
+
+</mat-list>
+<app-blog-detail [blog]="selectedBlog"></app-blog-detail>
