@@ -5,14 +5,16 @@
 	</li>
 </ul> -->
 
-<mat-list>
-	@for (blog of blogs; track blog){
-	<mat-list-item>
-		<mat-icon matListItemIcon>description</mat-icon>
-		<div matListItemTitle (click)="onBlogClick(blog)">
-			{{blog.title}}
-		</div>
-	</mat-list-item>}
+<div class="bloglist">
+	<mat-list>
+		@for (blog of blogs; track blog){
+		<mat-list-item>
+			<mat-icon matListItemIcon>description</mat-icon>
+			<div matListItemTitle (click)="onBlogClick(blog)">
+				{{blog.title}}
+			</div>
+		</mat-list-item>}
 
-</mat-list>
-<app-blog-detail [blog]="selectedBlog"></app-blog-detail>
+	</mat-list>
+	<app-blog-detail [blog]="selectedBlog"></app-blog-detail>
+</div>

@@ -1,0 +1,4 @@
+.bloglist {
+	display: flex;
+	flex-direction: row;
+}

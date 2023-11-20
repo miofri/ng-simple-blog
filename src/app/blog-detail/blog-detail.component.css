@@ -1,0 +1,12 @@
+.details-card {
+	max-width: 50vw;
+}
+.details-edit {
+	margin-left: 5px;
+	width: 80%;
+}
+
+.details-edit mat-form-field,
+textarea {
+	width: 100%;
+}

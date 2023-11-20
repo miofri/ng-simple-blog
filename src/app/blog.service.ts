@@ -22,6 +22,12 @@ export class BlogService {
 			.pipe(catchError(this.handleError<BlogRaw[]>('getBlogs', [])));
 	}
 
+	updateBlogs(blog: BlogRaw): Observable<any> {
+		return this.http
+			.put(this.blogsUrl, blog, this.httpOptions)
+			.pipe(catchError(this.handleError<any>('updateBlogs')));
+	}
+
 	/**
 	 * Handle Http operation that failed.
 	 * Let the app continue.
