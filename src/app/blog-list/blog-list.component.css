@@ -2,3 +2,20 @@
 	display: flex;
 	flex-direction: row;
 }
+
+.listButton {
+	margin-left: 3.4vw;
+}
+
+.newBlogEntry {
+	margin-left: 5vw;
+}
+
+mat-card-header {
+	margin-bottom: 3vh;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	width: 40vw;
+}

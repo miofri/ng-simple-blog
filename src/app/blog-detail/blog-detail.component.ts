@@ -26,7 +26,7 @@ export class BlogDetailComponent {
 		if (this.blog) {
 			this.rawBlog = converter(this.blog);
 			this.blogService
-				.updateBlogs(this.rawBlog)
+				.updateBlog(this.rawBlog)
 				.subscribe(() => console.log('succeeded put operation'));
 		}
 	}

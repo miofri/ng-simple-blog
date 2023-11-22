@@ -3,6 +3,7 @@ import { Observable, of, catchError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { BlogRaw } from './blog.model';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Injectable({
 	providedIn: 'root',
@@ -22,10 +23,22 @@ export class BlogService {
 			.pipe(catchError(this.handleError<BlogRaw[]>('getBlogs', [])));
 	}
 
-	updateBlogs(blog: BlogRaw): Observable<any> {
+	updateBlog(blog: BlogRaw): Observable<any> {
 		return this.http
 			.put(this.blogsUrl, blog, this.httpOptions)
-			.pipe(catchError(this.handleError<any>('updateBlogs')));
+			.pipe(catchError(this.handleError<any>('updateBlog')));
+	}
+
+	addBlog(blog: BlogRaw): Observable<BlogRaw> {
+		return this.http
+			.post<BlogRaw>(this.blogsUrl, blog, this.httpOptions)
+			.pipe(catchError(this.handleError<any>('addBlog')));
+	}
+
+	deleteBlog(id: number): Observable<BlogRaw> {
+		return this.http
+			.delete<BlogRaw>(`${this.blogsUrl}/${id}`, this.httpOptions)
+			.pipe(catchError(this.handleError<any>('deleteBlog')));
 	}
 
 	/**

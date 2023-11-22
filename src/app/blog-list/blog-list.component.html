@@ -7,6 +7,8 @@
 
 <div class="bloglist">
 	<mat-list>
+		<button mat-button type="button" class="listButton" (click)="toggleNewEntry()">Add
+			a new entry</button>
 		@for (blog of blogs; track blog){
 		<mat-list-item>
 			<mat-icon matListItemIcon>description</mat-icon>
@@ -14,7 +16,33 @@
 				{{blog.title}}
 			</div>
 		</mat-list-item>}
-
 	</mat-list>
 	<app-blog-detail [blog]="selectedBlog"></app-blog-detail>
+
+	<div *ngIf="addNewEntry" class="newBlogEntry">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>New entry</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<form>
+					<mat-form-field>
+						<mat-label>Title</mat-label>
+						<input type="text" matInput name="newBlogTitle" #newBlogTitle>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Author</mat-label>
+						<input type="text" matInput name="newBlogTitle" #newBlogAuthor>
+					</mat-form-field>
+					<mat-form-field>
+						<mat-label>Text</mat-label>
+						<textarea type="text" matInput name="newBlogText" #newBlogText></textarea>
+					</mat-form-field>
+					<button mat-button type="button"
+						(click)="addNewBlog(newBlogTitle.value, newBlogText.value, newBlogAuthor.value)">Upload
+						entry</button>
+				</form>
+			</mat-card-content>
+		</mat-card>
+	</div>
 </div>
