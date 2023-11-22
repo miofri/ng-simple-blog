@@ -14,6 +14,9 @@ textarea {
 .editButton {
 	margin-top: 1vh;
 }
+.tags {
+	margin-left: 1vw;
+}
 mat-card-title {
 	width: 47vw;
 	display: flex;

@@ -17,7 +17,7 @@
 	</mat-card-content>
 	<mat-card-footer>
 		<mat-card-subtitle>
-			<span *ngFor="let tag of blog.tags; let last = last"
+			<span class="tags" *ngFor="let tag of blog.tags; let last = last"
 				[appTagHighlight]="blog.tags" [appTagHighlight]="blog.tags">
 				#{{tag}}{{!last ? ' ' : ''}}
 			</span>
