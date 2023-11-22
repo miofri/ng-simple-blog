@@ -35,10 +35,10 @@ export class BlogService {
 			.pipe(catchError(this.handleError<any>('addBlog')));
 	}
 
-	deleteBlog(id: number): Observable<BlogRaw> {
+	deleteBlog(id: number): Observable<void> {
 		return this.http
-			.delete<BlogRaw>(`${this.blogsUrl}/${id}`, this.httpOptions)
-			.pipe(catchError(this.handleError<any>('deleteBlog')));
+			.delete<void>(`${this.blogsUrl}/${id}`, this.httpOptions)
+			.pipe(catchError(this.handleError<void>('deleteBlog')));
 	}
 
 	/**

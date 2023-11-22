@@ -4,6 +4,7 @@ export interface BlogRaw {
 	author: string;
 	content: string;
 	date: Date;
+	tags: string[];
 }
 export interface Blog extends BlogRaw {
 	showDetail: boolean;

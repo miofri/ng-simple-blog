@@ -19,6 +19,7 @@ import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TagHighlightDirective } from './tag-highlight.directive';
 
 @NgModule({
 	declarations: [
@@ -44,6 +45,7 @@ import { AppRoutingModule } from './app-routing.module';
 		}),
 		BrowserAnimationsModule,
 		AppRoutingModule,
+		TagHighlightDirective,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

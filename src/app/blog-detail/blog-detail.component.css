@@ -10,3 +10,17 @@
 textarea {
 	width: 100%;
 }
+
+.editButton {
+	margin-top: 1vh;
+}
+mat-card-title {
+	width: 47vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+mat-card-footer {
+	margin-top: 2vh;
+	margin-left: 1vw;
+}

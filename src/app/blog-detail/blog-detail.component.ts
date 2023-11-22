@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
@@ -14,13 +14,13 @@ export class BlogDetailComponent {
 	constructor(private blogService: BlogService) {}
 
 	edit: boolean = false;
+	rawBlog?: BlogRaw;
 
 	@Input() blog?: Blog;
-	rawBlog?: BlogRaw;
+	@Output() emitDeleteClick = new EventEmitter();
 
 	toggleEdit(): void {
 		this.edit = !this.edit;
-		console.log('toggled');
 	}
 	saveContent(): void {
 		if (this.blog) {
@@ -29,5 +29,8 @@ export class BlogDetailComponent {
 				.updateBlog(this.rawBlog)
 				.subscribe(() => console.log('succeeded put operation'));
 		}
+	}
+	onDeleteClick() {
+		this.emitDeleteClick.emit(this.blog?.id!);
 	}
 }

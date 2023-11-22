@@ -1,23 +1,19 @@
-<!-- <p>blog-list works!</p>
-<ul>
-	<li *ngFor="let blog of blogs">
-		<span (click)="onBlogClick(blog)">{{blog.title}}</span>
-	</li>
-</ul> -->
-
 <div class="bloglist">
 	<mat-list>
-		<button mat-button type="button" class="listButton" (click)="toggleNewEntry()">Add
-			a new entry</button>
+		<button mat-button type="button" class="listButton" (click)="toggleNewEntry()">
+			Add a new entry
+		</button>
 		@for (blog of blogs; track blog){
-		<mat-list-item>
+		<mat-list-item (click)="onBlogClick(blog)">
 			<mat-icon matListItemIcon>description</mat-icon>
-			<div matListItemTitle (click)="onBlogClick(blog)">
-				{{blog.title}}
+			<div matListItemTitle>
+				{{blog.title}} - <span>{{blog.date | date}}</span>
 			</div>
 		</mat-list-item>}
 	</mat-list>
-	<app-blog-detail [blog]="selectedBlog"></app-blog-detail>
+
+	<app-blog-detail [blog]="selectedBlog"
+		(emitDeleteClick)="handleDeleteClick($event)"></app-blog-detail>
 
 	<div *ngIf="addNewEntry" class="newBlogEntry">
 		<mat-card>

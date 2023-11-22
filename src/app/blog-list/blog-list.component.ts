@@ -1,7 +1,6 @@
 import {
 	Component,
-	EventEmitter,
-	Output,
+	ChangeDetectorRef,
 	ViewChild,
 	ElementRef,
 } from '@angular/core';
@@ -14,7 +13,10 @@ import { Blog, BlogRaw } from '../blog.model';
 	styleUrls: ['./blog-list.component.css'],
 })
 export class BlogListComponent {
-	constructor(private blogService: BlogService) {}
+	constructor(
+		private blogService: BlogService,
+		private cdr: ChangeDetectorRef
+	) {}
 
 	blogs: Blog[] = [];
 	selectedBlog?: Blog;
@@ -42,6 +44,7 @@ export class BlogListComponent {
 			this.selectedBlog = undefined;
 		} else {
 			this.selectedBlog = blog;
+			this.cdr.detectChanges();
 		}
 		this.addNewEntry = false;
 	}
@@ -71,5 +74,10 @@ export class BlogListComponent {
 			this.newBlogTitle.nativeElement.value = '';
 			this.newBlogAuthor.nativeElement.value = '';
 		}
+	}
+
+	handleDeleteClick(id: number) {
+		this.blogs = this.blogs.filter((b) => b.id !== id);
+		this.blogService.deleteBlog(id).subscribe();
 	}
 }

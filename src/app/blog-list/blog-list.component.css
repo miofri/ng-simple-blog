@@ -2,11 +2,15 @@
 	display: flex;
 	flex-direction: row;
 }
-
+form {
+	display: flex;
+	flex-direction: column;
+	width: 40vw;
+}
 .listButton {
 	margin-left: 3.4vw;
+	margin-bottom: 2vh;
 }
-
 .newBlogEntry {
 	margin-left: 5vw;
 }
@@ -14,8 +18,6 @@
 mat-card-header {
 	margin-bottom: 3vh;
 }
-form {
-	display: flex;
-	flex-direction: column;
-	width: 40vw;
+mat-list-item:hover {
+	background-color: gainsboro;
 }
