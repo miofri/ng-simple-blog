@@ -1,9 +1,4 @@
-import {
-	Component,
-	ChangeDetectorRef,
-	ViewChild,
-	ElementRef,
-} from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { BlogService } from '../blog.service';
 import { Blog, BlogRaw } from '../blog.model';
 
@@ -13,10 +8,7 @@ import { Blog, BlogRaw } from '../blog.model';
 	styleUrls: ['./blog-list.component.css'],
 })
 export class BlogListComponent {
-	constructor(
-		private blogService: BlogService,
-		private cdr: ChangeDetectorRef
-	) {}
+	constructor(private blogService: BlogService) {}
 
 	blogs: Blog[] = [];
 	selectedBlog?: Blog;
@@ -44,7 +36,6 @@ export class BlogListComponent {
 			this.selectedBlog = undefined;
 		} else {
 			this.selectedBlog = blog;
-			this.cdr.detectChanges();
 		}
 		this.addNewEntry = false;
 	}
